@@ -3,7 +3,7 @@ const postreducer = (posts =[], action)=>{
         case "FETCH_ALL":
             return action.payload;
         case "CREATE":
-            return posts;
+            return action.payload
         default:
             return posts;
     }

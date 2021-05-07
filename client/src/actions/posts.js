@@ -11,3 +11,14 @@ export const getposts = ()=> async (dispatch)=>{
    }
 
 }
+export const createpost  = (post)=> async (dispatch)=>{
+    try{
+        const {data } = await api.createpost(post);
+        console.log("thise is data ",data);
+        dispatch({type:"CREATE",payload: data})
+
+    }catch(err){
+        if(err) console.log(err);
+    }
+
+}

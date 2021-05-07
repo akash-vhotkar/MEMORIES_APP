@@ -10,23 +10,25 @@ import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import { useEffect } from 'react';
 function App() {
   const dispatch = useDispatch();
+  
   useEffect(() => {
-    dispatch(getposts);
+    dispatch(getposts());
   }, [dispatch])
+
   return (
     <Router>
       <Switch>
         <div className="App">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Memories app</a>
+            <a class="navbar-brand">Memories app</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <Link to="/"><a class="nav-item " href="#"> Home   </a></Link>
-                <Link to="/login" > <a class="nav-item " href="#"> Login    </a></Link>
-                <Link to="/register"><a class="nav-item " href="#"> Register  </a></Link>
+                <Link to="/"> Home   </Link>
+                <Link to="/login" >  Login    </Link>
+                <Link to="/register"> Register </Link>
               </div>
             </div>
           </nav>

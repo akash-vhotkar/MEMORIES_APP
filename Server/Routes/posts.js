@@ -6,4 +6,5 @@ router.get('/', (req, res) => {
     postcontroller.getpost(req, res);
 
 })
+
 module.exports = router;

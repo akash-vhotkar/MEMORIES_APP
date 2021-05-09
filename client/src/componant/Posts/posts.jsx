@@ -1,14 +1,15 @@
 import {useSelector} from 'react-redux';
 import Post from './post'
-const Posts = ()=>{
+const Posts = ({curruntid , setcurruntid})=>{
     const posts = useSelector(state => state.posts)
-    console.log("thise are the piosts ", posts);
+
+    console.log("thise are the piosts ", posts.data,"  thise is type of " , typeof posts);
     return (
         <div className="Posts">
-            <h1>posts are </h1>
-        {posts.map(post=>(
+            <h1>all created posts </h1>
+        {posts.map((post)=>(
             <div key={post._id}>
-                <Post post={post}></Post>
+                <Post post={post} curruntid={curruntid} setcurruntid={setcurruntid}></Post>
             </div>
         ))}
         </div>

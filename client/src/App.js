@@ -7,13 +7,13 @@ import Posts from './componant/Posts/posts';
 import {getposts} from './actions/posts' 
 import Form from './componant/Form/form';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 function App() {
   const dispatch = useDispatch();
-  
+  const [curruntid , setcurruntid ] = useState(null);
   useEffect(() => {
     dispatch(getposts());
-  }, [dispatch])
+  }, [dispatch, curruntid])
 
   return (
     <Router>
@@ -36,11 +36,11 @@ function App() {
             <div class="container">
               <div class="row">
                 <div class="col-md-9">
-                  <Posts></Posts>
+                  <Posts curruntid ={curruntid} setcurruntid ={setcurruntid}></Posts>
 
                 </div>
                 <div class="col-md-3">
-                  <Form></Form>
+                  <Form curruntid ={curruntid} setcurruntid ={setcurruntid}></Form>
 
                 </div>
               </div>

@@ -1,15 +1,16 @@
 import FileBase from 'react-file-base64';
 import {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { toast } from 'react-toastify';
 import {  createpost, updatepost } from '../../actions/posts';
+
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 const Form = ({curruntid , setcurruntid}) => {
     toast.configure();
     const dispatch = useDispatch();
     const [postdata,setpostdata] = useState({creator:'', title : '', tags:'', message:'', selectedFile:''});
     const post = useSelector((state)=> curruntid? state.posts.find((p)=> p._id== curruntid) : null)
-    console.log("post is post ",post);
+    
     useEffect(() => {
        if(post) {
            console.log(" thise is post of the page ",post);

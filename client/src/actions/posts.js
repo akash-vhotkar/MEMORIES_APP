@@ -56,3 +56,28 @@ export const updatepost = (id, post)=> async (dispatch)=>{
         if(err) console.log(err);
     }
 }
+
+export const login = (userdata , history)=> async (dispatch)=>{
+    try{
+        const {data}  = await api.login(userdata,history);
+        dispatch({type:"AUTH", data})
+        history.push('/');
+    }
+    catch(err){
+        if(err) console.log(err);
+    }
+}
+export const register = (userdata , history)=> async (dispatch)=>{
+    try{
+        const {data} = await api.register(userdata);
+        dispatch({type:"AUTH", data});
+        history.push("/");
+
+    }catch(err){
+        if(err){
+            console.log(err);
+            
+        }
+    }
+
+}
